@@ -11,7 +11,7 @@ It automatically creates it with the needed spigot API dependency and maven grou
 <br>
 Made with javax.swing (will be changed to javaFX later)
 <br>
-<a href="https://github.com/Corey-Null/SpigotProjectBuilder/tree/master/downloads">Downloads</a>
+<a href="https://github.com/Corey-Null/SpigotProjectBuilder/raw/master/downloads/ProjectBuilder.jar">Download</a>
 
 TODO
 ------
