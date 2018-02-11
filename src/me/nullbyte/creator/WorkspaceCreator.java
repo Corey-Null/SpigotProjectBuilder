@@ -1,10 +1,13 @@
 package me.nullbyte.creator;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import javax.swing.JOptionPane;
 
 import me.nullbyte.creator.swing.UserInterface;
 import me.nullbyte.creator.types.Type;
@@ -24,6 +27,7 @@ public class WorkspaceCreator {
 	private final Schematic manifestSchematic;
 	private final Schematic pompropSchematic;
 	private final TypeManager manager;
+	private final UserInterface ui;
 
 	public WorkspaceCreator(WorkspaceType type) {
 		this.manager = new TypeManager();
@@ -133,7 +137,7 @@ public class WorkspaceCreator {
 		this.messagesYamlSchematic = new Schematic("messagesyml-schematic");
 		manifestSchematic = new Schematic("meta/manifest-schematic");
 		pompropSchematic = new Schematic("meta/pomprop-schematic");
-		new UserInterface(this, manager);
+		ui = new UserInterface(this, manager);
 	}
 
 	public void generate(File output, ProjectInfo info) throws IOException {
@@ -175,6 +179,9 @@ public class WorkspaceCreator {
 				type.getSchematic().loadResource(lFolder, type.getName() + "Listener.java", info);
 			}
 		}
+		JOptionPane.showMessageDialog(null, "Finished Creation");
+		Desktop.getDesktop().open(output);
+		ui.getFrame().dispose();
 	}
 
 	public File makeFolder(File parent, String name) {

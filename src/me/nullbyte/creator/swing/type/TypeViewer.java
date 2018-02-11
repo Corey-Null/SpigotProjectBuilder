@@ -75,6 +75,7 @@ public class TypeViewer extends JFrame {
 			}
 			String name = type instanceof CommandType ? "Command: " : "Listener: ";
 			builder.append(index + ": " + name + type.getName());
+			index++;
 		}
 		text.setText(builder.toString());
 	}

@@ -35,6 +35,10 @@ public class UserInterface {
 		createButtons();
 		frame.setVisible(true);
 	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
 
 	public void createFrame() {
 		frame.setBounds(100, 100, 450, 340);
