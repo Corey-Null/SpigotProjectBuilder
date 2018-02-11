@@ -10,6 +10,8 @@ This program works with schematics and builds a project folder hierarchy in the 
 It automatically creates it with the needed spigot API dependency and maven groupID/artifactID
 <br>
 Made with javax.swing (will be changed to javaFX later)
+<br>
+<a href="https://github.com/Corey-Null/SpigotProjectBuilder/tree/master/downloads">Downloads</a>
 
 TODO
 ------
