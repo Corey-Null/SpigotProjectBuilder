@@ -76,6 +76,10 @@ public class WorkspaceCreator {
 				text = text.replace("#{imports}", imports.toString());
 				text = text.replace("#{commands}", commands.toString());
 				text = text.replace("#{listeners}", listeners.toString());
+				text = text.replace("#{package}", info.getPkg());
+				text = text.replace("#{name}", info.getName());
+				text = text.replace("#{name-lower}", info.getName().toLowerCase());
+				text = text.replace("#{description}", info.getDescription());
 				return text;
 			}
 		};
@@ -119,6 +123,10 @@ public class WorkspaceCreator {
 				String text = super.getText(info);
 				text = text.replace("#{commands}", commands.toString());
 				text = text.replace("#{permissions}", permissions.toString());
+				text = text.replace("#{package}", info.getPkg());
+				text = text.replace("#{name}", info.getName());
+				text = text.replace("#{name-lower}", info.getName().toLowerCase());
+				text = text.replace("#{description}", info.getDescription());
 				return text;
 			}
 		};
