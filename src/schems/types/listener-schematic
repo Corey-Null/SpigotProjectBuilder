@@ -1,0 +1,13 @@
+package #{package}.#{name-lower}.listeners;
+
+import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class #{listener-name}Listener implements Listener {
+
+	public #{listener-name}Listener(JavaPlugin plugin) {
+		Bukkit.getPluginManager().registerEvents(this, plugin);
+	}
+
+}

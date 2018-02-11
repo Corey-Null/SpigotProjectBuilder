@@ -1,0 +1,5 @@
+gen:
+  no-permission: "&cYou do not have permission for this."
+  console-restricted: "&cThe console cannot use this command."
+  usage-format: "Syntax error, please use: {0}"
+  invalid-number: "&c{0} is not a valid number."

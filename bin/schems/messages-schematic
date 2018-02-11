@@ -1,0 +1,52 @@
+package #{package}.#{name-lower};
+
+import java.io.File;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+
+public class Messages {
+
+	private static #{name} plugin;
+	private static File file;
+	private static FileConfiguration config;
+
+	public static void init(#{name} plugin) {
+		Messages.plugin = plugin;
+		file = new File(plugin.getDataFolder(), "messages.yml");
+		reload();
+	}
+
+	public static void reload() {
+		plugin.loadResource("messages.yml");
+		config = YamlConfiguration.loadConfiguration(file);
+	}
+
+	public static String getMessage(String key, Object... args) {
+		String msg = config.getString(key);
+		if (msg == null) {
+			return null;
+		}
+		for (int i = 0; i < args.length; i++) {
+			msg = msg.replace("{" + i + "}", String.valueOf(args[i]));
+		}
+		return color(msg);
+	}
+
+	public static void sendCMessage(CommandSender sender, String key, Object... args) {
+		sendMessage(sender, getMessage(key, args));
+	}
+
+	public static void sendMessage(CommandSender sender, String message) {
+		if (message != null) {
+			sender.sendMessage(message);
+		}
+	}
+
+	public static String color(String string) {
+		return ChatColor.translateAlternateColorCodes('&', string);
+	}
+
+}

@@ -1,0 +1,46 @@
+package #{package}.#{name-lower};
+
+import java.io.File;
+import java.io.InputStream;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
+#{imports}
+
+public class #{name} extends JavaPlugin {
+
+	@Override
+	public void onEnable() {
+		saveDefaultConfig();
+		Messages.init(this);
+		registerCommands();
+		registerListeners();
+	}
+	
+	public void registerCommands() {
+		#{commands}
+	}
+	
+	public void registerListeners() {
+		#{listeners}
+	}
+
+	@Override
+	public void onDisable() {
+		Bukkit.getScheduler().cancelTasks(this);
+	}
+
+	public void reload() {
+		reloadConfig();
+		Messages.reload();
+	}
+	
+	public void loadResource(String resourcePath) {
+		File outFile = new File(getDataFolder(), resourcePath);
+		if (!outFile.exists()) {
+			saveResource(resourcePath, false);
+		}
+	}
+
+}

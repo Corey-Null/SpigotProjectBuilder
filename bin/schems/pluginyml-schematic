@@ -1,0 +1,16 @@
+# Required
+name: ${project.name}
+main: ${project.groupId}.${project.artifactId}.${project.name}
+version: ${project.version}
+
+# Information
+description: ${project.version}
+author: NullByte
+depend: []
+softdepend: []
+website: https://www.spigotmc.org/members/nullbytes.142730/
+
+commands:
+  #{commands}
+permissions:
+  #{permissions}
